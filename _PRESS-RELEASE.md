@@ -18,27 +18,52 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  Pic-Mix
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
 
+  Anybody who wants to view images of their personal interests without having to losing them ever again.
+   
+
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+
+  With Pic-Mix you can easily browse through all sorts of interesting images through our listings. If you have an image of interest, you can simply click the add button and add it to your wall of images. With Pic-Mix you don't ever have to worry about losing that image again because our system will keep track of it for many years to come.
+
 
 ## Problem ##
   > Describe the problem your product solves.
 
+  Rather Than having to take note of all the images that you have found interest in on google or Flickr, you can simply use our app and quickly record all your interests.
+
+
+
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  With pic-mix, any user can simply search through our database and pick a image of their likings and comment on it. We then store that information so that you can never lose that again.
+
+  
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
 
+  "Don't impress others on Social Media! Find your passion and express it"
+
+
 ## How to Get Started ##
   > Describe how easy it is to get started.
 
+  To get started please visit www.picmix.com and sign up for an account. 
+
+
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "I love Pic-Mix for its easy-to-use interface along with its intentions on making the consumer always happy"
+
+
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+
+  To find out more visit the website at www.picmix.com/info
