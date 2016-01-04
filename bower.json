@@ -1,0 +1,24 @@
+{
+  "name": "pic-mix",
+  "description": "image blogging platform",
+  "main": "index.html",
+  "authors": [
+    "Ahad Wasim"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Ahad-Wasim/2015-11-mvp",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "animate.css": "https://github.com/daneden/animate.css.git#~3.5.1",
+    "bootstrap": "~3.3.6",
+    "angular": "~1.4.8"
+  }
+}

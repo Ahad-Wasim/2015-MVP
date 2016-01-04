@@ -4,6 +4,9 @@
 logs
 *.log
 
+# Bower Modules
+.bowerrc
+
 # Runtime data
 pids
 *.pid
@@ -21,6 +24,9 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
+
+# API key
+server/models/apiKey.js
 
 # Dependency directorys
 # Deployed apps should consider commenting these lines out:
