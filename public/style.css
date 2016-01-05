@@ -1,0 +1,19 @@
+#main-search {
+  width: 575px;
+  height: 40px;
+}
+
+
+#searchButton {
+  height:40px;
+  width:50px;
+}
+
+.greetings {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
