@@ -1,18 +1,25 @@
 <div ng-controller='inputController' id='opener'>
-  <div class='greetings'>
-    <h1 >Hello {{ name }}</h1>
-    <h3>What would you like to search for today</h3>
+  
+  <div class='input-wrapper'>
+    <div class='greetings'>
+      <h1 >Hello {{ name }}</h1>
+      <h3>What would you like to search for today</h3>
+    </div>
+
+    <form class="inputForm navbar-form" role="search">
+      <div class="input-group">
+        <input ng-model='messageText' type="text" id='main-search' class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+        <div class="input-group-btn">
+          <button ng-click='searchImage()' id='searchButton' class="btn btn-default" type="submit"><i class="mag glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+    </form>
   </div>
 
-  <form class="inputForm navbar-form" role="search">
-    <div class="input-group">
-      <input ng-model='messageText' type="text" id='main-search' class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-      <div class="input-group-btn">
-        <button ng-click='searchImage()' id='searchButton'class="btn btn-default" type="submit"><i class="mag glyphicon glyphicon-search"></i></button>
-      </div>
+  <div class='image-wrapper'>
+    <div class='showImages' ng-repeat= "image in searchResults" >
+      <img class='image-url' src= "{{ image.src }}" />
     </div>
-  </form>
-
-
+  </div>
 
 </div>

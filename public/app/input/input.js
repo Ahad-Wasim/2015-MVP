@@ -13,17 +13,25 @@ angular.module('home.inputs',[])
 
    return { fetch: fetch };
  })
-.controller('inputController', ['$scope', '$http', 'FetchImage', function($scope, $http, FetchImage){
+.controller('inputController', ['$scope', '$http', 'FetchImage','$location', function($scope, $http, FetchImage, $location){
 
   $scope.name = "Jennifer"
 
   // This is for the input tags
   $scope.messageText = '';
 
-  $scope.searchImage = function(){  
+  $scope.searchImage = function(){
+
+    var attributes = {'src': 'https://media.giphy.com/media/10kTz4r3ishQwU/giphy.gif', 'class': 'spinner'}
+    var $spinner = $('<img />').attr(attributes)
+    $('#opener').append($spinner);
+
     FetchImage.fetch($scope.messageText)
       .then(function(response){
-        console.log('Images', response);
+        $('.spinner').hide();
+        console.log(response.data);
+        // $location.path('/imageResults');
+        $scope.searchResults = response.data;
       });
   }
 

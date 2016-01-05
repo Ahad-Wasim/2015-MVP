@@ -5,7 +5,11 @@ app.config(function($routeProvider){
     .when('/',{
       templateUrl: '../views/input.html',
       controller: 'inputController'
-    });
+    })
+    // .when('/imageResults', {
+    //   templateUrl: '../views/imageResults.html',
+    //   controller: 'inputController'
+    // });
 
 
 });

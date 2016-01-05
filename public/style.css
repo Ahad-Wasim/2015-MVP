@@ -22,3 +22,24 @@ form.inputForm {
   margin-top:35px;
 }
 
+.spinner {
+  display: block;
+  margin: 0 auto
+}
+
+.image-wrapper {
+  width:98%;
+  background-color: black;
+  margin: 0 auto;
+}
+
+.showImages {
+  display: inline-block;
+  border: 1px solid black
+}
+
+.image-url {
+  width:320px;
+  height:240px;
+}
+
