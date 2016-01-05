@@ -43,15 +43,6 @@ app.listen(port, function(){
 
 // Routes
 
-
-app.get('/hello', function(req, res){
-  req.session.loggedIn = true;
-
-  console.log(req.session);
-  res.end();
-});
-
-
 // When the user signs up
 app.post('/signup', helper.signUpUser);
 

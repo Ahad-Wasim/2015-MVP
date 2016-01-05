@@ -12,26 +12,25 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-inverse">
+    <nav ng-controller="logoutController" class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#/">WebSiteName</a>
+          <a class="navbar-brand" href="#/">Pic-Mix</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="logout"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+          <li ng-click='routeToLogout()'> <a href='#'><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
         </ul>
 
         <ul class="actualNav nav navbar-nav navbar-right">
           <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Page 1</a></li>
-          <li><a href="#">Page 2</a></li> 
-          <li><a href="#">Page 3</a></li> 
         </ul>
        
       </div>
     </nav>
+
+
 
     <!-- Single Page App --> 
     <div class='template-wrapper' ng-view> </div>
@@ -47,6 +46,27 @@
   <script type="text/javascript" src="app/app.js"></script>
   <script type="text/javascript" src="app/signup/signup.js"></script> 
   <script type="text/javascript" src="app/login/login.js"></script> 
+  <script type="text/javascript" src="app/logout/logout.js"></script>
   <script type="text/javascript" src="app/input/input.js"></script>
+  <script type="text/javascript" src="app/userProfile/userProfile.js"></script>
+
+
+ <!-- <script>
+  // $(function(){
+  //   $('.image-wrapper').on('click','.show-images',function(){
+  //     alert('hello');
+  //   })
+
+  //   function showSpan(){
+  //     $(this).closest('.showImages').find('span').slideToggle();
+  //   }
+
+  //   $('.image-wrapper').on('mouseenter', '.showImages', showSpan);
+  // })
+
+
+    
+   </script>
+-->
 
 </html>

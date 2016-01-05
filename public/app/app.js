@@ -1,5 +1,4 @@
-var app = angular.module('myApp', ['home.inputs','signUp','login','ngRoute']);
-
+var app = angular.module('myApp', ['home.inputs','signUp','login','logout','ngRoute']);
 
 app.config(function($routeProvider){
   
@@ -15,6 +14,10 @@ app.config(function($routeProvider){
     .when('/signup', {
       templateUrl: '../views/signup.html',
       controller: 'signUpController'
+    })
+    .when('/userWall', {
+      templateUrl:'../views/userWall.html',
+      controller: 'userProfileController'
     })
 
 });

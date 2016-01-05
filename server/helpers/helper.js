@@ -97,7 +97,7 @@ var logout = function(req, res){
       return err;
       res.end();
     } else {
-      res.redirect('../#/login')
+      res.json({status:true})
     }
   });
 

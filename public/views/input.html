@@ -2,7 +2,7 @@
   
   <div class='input-wrapper'>
     <div class='greetings'>
-      <h1 >Hello {{ name }}</h1>
+      <h1>Hello {{ name }}</h1>
       <h3>What would you like to search for today</h3>
     </div>
 
@@ -19,6 +19,7 @@
   <div class='image-wrapper'>
     <div class='showImages' ng-repeat= "image in searchResults" >
       <img class='image-url' src= "{{ image.src }}" />
+      <span>{{ image.title }}</span>
     </div>
   </div>
 

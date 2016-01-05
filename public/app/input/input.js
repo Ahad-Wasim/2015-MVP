@@ -17,6 +17,8 @@ angular.module('home.inputs',[])
 
   $scope.name = ""
 
+  $scope.currentImage ='';
+
   // This is for the input tags
   $scope.messageText = '';
 
@@ -34,8 +36,6 @@ angular.module('home.inputs',[])
         $scope.searchResults = response.data;
       });
   }
-
-
 
 
 }])

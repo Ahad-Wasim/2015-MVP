@@ -1,6 +1,6 @@
 angular.module('signUp', [])
 
-.controller('signUpController', ['$scope','$http','$location', function($scope, $http, $location){
+.controller('signUpController', ['$scope','$http','$location','$window', function($scope, $http, $location, $window){
   
   $scope.email = '';
   $scope.password = '';
@@ -10,7 +10,7 @@ angular.module('signUp', [])
     
     $http({
       method:'POST',
-      url: '/signUp',
+      url: '/signup',
       data: {
         fullName: $scope.fullName,
         email:  $scope.email,
@@ -18,9 +18,11 @@ angular.module('signUp', [])
       }
     }).then(function(response){
       if(response.data.error){ 
-        return  console.log(response.data.error); 
+        console.log(response.data.error); 
+        // Can't use that username
       } else {
         console.log(response.data);
+        $window.location.href= '/';
       }
 
     })
