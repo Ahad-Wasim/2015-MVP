@@ -1,6 +1,7 @@
 var User = require('../models/userModel.js').User;
 var _ = require('underscore');
 var bcrypt = require('bcrypt-nodejs');
+var url = require('url');
 
 
 var signUpUser = function(req, res, next){
@@ -64,11 +65,17 @@ var loginUser = function(req, res){
           return err;
           response.json({error: 'Database query Issues'})
         } else if(bool) {
-          console.log("Im logged in");
+          console.log("Your logged In");
           req.session.loggedIn = true;
           req.session.fullName = user.fullName;
           req.session.email = user.password;
-          res.redirect('/');
+
+          var userObject = {
+            fullName: user.fullName,
+            email: user.email,
+          };
+
+          res.json(userObject);
         } else {
           res.json({ error:'Incorrect Password' }) // Go back to the home page
         }
@@ -82,13 +89,15 @@ var loginUser = function(req, res){
 
 
 
-var killSession = function(req, res){
+var logout = function(req, res){
   
+  console.log("Logging Out");
   req.session.destroy(function(err){
     if(err){
       return err;
+      res.end();
     } else {
-      res.redirect('/login')
+      res.redirect('../#/login')
     }
   });
 
@@ -98,6 +107,6 @@ var killSession = function(req, res){
 module.exports = {
   loginUser: loginUser,
   signUpUser: signUpUser,
-  logout : killSession
+  logout : logout
 };
 

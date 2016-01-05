@@ -1,5 +1,6 @@
 var app = angular.module('myApp', ['home.inputs','signUp','login','ngRoute']);
 
+
 app.config(function($routeProvider){
   
   $routeProvider
@@ -15,9 +16,6 @@ app.config(function($routeProvider){
       templateUrl: '../views/signup.html',
       controller: 'signUpController'
     })
-    // .when('/logout', {
-    //   redirectTo: '/login'
-    // })
 
 });
 

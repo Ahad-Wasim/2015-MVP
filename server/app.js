@@ -66,7 +66,5 @@ app.get('/logout', helper.logout);
 
 
 
-
-
 // MOVE ALL THESE TO A ROUTER FILE WHEN YOU GET THE CHANCE 
 app.post('/api/getImages', flickr );

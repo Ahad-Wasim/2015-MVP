@@ -1,5 +1,5 @@
 angular.module('login', [])
-  .controller('loginController', ['$scope','$http', function($scope, $http){
+  .controller('loginController', ['$scope','$http','$window', function($scope, $http, $window){
     $scope.email = '';
     $scope.password = '';
 
@@ -10,11 +10,15 @@ angular.module('login', [])
       data: {
         email: $scope.email,
         password: $scope.password
-      }}).then(function(){
-        // Check if the user is logged in
+      }}).then(function(response){
+        if(response.data.error){
+          console.log("You got an error");
+        } else {
+          console.log('I got data', response.data);
+          $window.location.href = '#/';
+        }
       });
     };
-      
-    
 
   }]);
+    

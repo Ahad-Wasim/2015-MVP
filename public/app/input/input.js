@@ -15,7 +15,7 @@ angular.module('home.inputs',[])
  })
 .controller('inputController', ['$scope', '$http', 'FetchImage','$location', function($scope, $http, FetchImage, $location){
 
-  $scope.name = "Jennifer"
+  $scope.name = ""
 
   // This is for the input tags
   $scope.messageText = '';
