@@ -38,6 +38,7 @@ var getImages = function(req, res){
 
   request(listURL, function (error, response, body) {
     if(!error && response.statusCode == 200) {
+      console.log(body);
       res.json(createIMGSOURCE(JSON.parse(body)) );
     }
   })
