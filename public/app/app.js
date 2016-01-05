@@ -1,5 +1,13 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['home.inputs', 'ngRoute']);
 
-app.config();
+app.config(function($routeProvider){
+  $routeProvider
+    .when('/',{
+      templateUrl: '../views/input.html',
+      controller: 'inputController'
+    });
+
+
+});
 
 

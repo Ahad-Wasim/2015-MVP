@@ -31,11 +31,11 @@ var createIMGSOURCE = function(body){
   
 }
 
-var getImages = function(){ 
+var getImages = function(req, res){ 
 
   request(listURL, function (error, response, body) {
     if(!error && response.statusCode == 200) {
-      createIMGSOURCE(JSON.parse(body));
+      res.json( createIMGSOURCE(JSON.parse(body)) );
     }
   })
 
