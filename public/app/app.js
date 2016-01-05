@@ -15,6 +15,9 @@ app.config(function($routeProvider){
       templateUrl: '../views/signup.html',
       controller: 'signUpController'
     })
+    // .when('/logout', {
+    //   redirectTo: '/login'
+    // })
 
 });
 

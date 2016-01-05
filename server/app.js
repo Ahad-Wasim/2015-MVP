@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 
 var session = require('express-session');
@@ -11,18 +12,26 @@ var helper = require('./helpers/helper.js');
 var app = express();
 
 
+// Listening For the database
+mongoose.connect('mongodb://localhost:27017/pic-mix');
+
+
+// MiddleWare
+
 app.use(cookieParser());
+
 app.use(session({
   // Secret hashes the session
   secret:'sssssshhhhhhhh',
   saveUninitialized: true,
   resave:true
 }));
+app.use(bodyParser.json());
+
 app.use(express.static('public'));
 
 
-
-var port = process.env.PORT || 3250 ;
+var port = process.env.PORT || 3450 ;
 
 
 app.listen(port, function(){
@@ -30,23 +39,25 @@ app.listen(port, function(){
 });
 
 
-app.use(bodyParser.json());
+
+
+// Routes
 
 
 app.get('/hello', function(req, res){
   req.session.loggedIn = true;
-  req.session.count = req.session.count || 0
-  req.session.count++;
+
   console.log(req.session);
   res.end();
 });
 
 
 // When the user signs up
-app.post('/signup', helper.encrypt);
+app.post('/signup', helper.signUpUser);
+
 
 // When the user logs in
-app.post('/login', helper.compare);
+app.post('/login', helper.loginUser);
 
 
 

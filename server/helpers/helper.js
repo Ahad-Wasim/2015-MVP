@@ -1,38 +1,83 @@
+var User = require('../models/userModel.js').User;
+var _ = require('underscore');
 var bcrypt = require('bcrypt-nodejs');
 
 
-var encryptPassword = function(req, res, next){
+var signUpUser = function(req, res, next){
 
+  var fullName = req.body.fullName;
   var email = req.body.email;
+
+  // Only send this to bcrypt. NOT THE DATABASE
   var password = req.body.password;
 
-  // Create a session once the user is found in the database
+  User.findOne({ email: email}, function(err, user){
+    if(err) console.log(error)
 
-  // bcrypt.hash(req.body, null, null, function(err, hash) {
-  //   // Store hash in your password DB.
-  // });
-  res.end();
+    if(user){
+      res.json({ data: 'That username already exits' });
+    } else {
+
+      bcrypt.hash(password, null, null, function(err, hash) {
+        
+        var userInfo = {
+          fullName: fullName,
+          email: email,
+          password: hash
+        }
+
+        var user = new User(userInfo);
+        user.save(function(err, userData){
+          if (err) return console.error(err);
+          //console.log('WTF', userData);
+          req.session.loggedIn = true;
+          req.session.fullName = fullName;
+          req.session.email = email;
+
+          // TODO:
+          // If time fix this so that mongoose can extract the data back that you really want.
+          // Maybe you may have to redirect your route here.
+          res.json(userData);
+        });
+
+      });
+    }
+  });
+
+  
 };
 
-var compareHashedPassword = function(req, res){
+var loginUser = function(req, res){
 
   var email = req.body.email;
   var password = req.body.password;
 
-  // Create a session if a user is found in the database
+  User.findOne({ email: email }, function(err, user){
+    if(err){
+      res.json({ error: 'Incorrect Username' })
+    } else {
+      var hash = user.password;
 
-  // bcrypt.compare("password", hash, function(err, bool) {
-  //   if(err){
-  //     return err;
-  //   } else if(bool) {
-  //     req.session.loggedIn = true;
-  //     res.end(); 
-  //   } else {
-  //     res.redirect('/') // Go back to the home page
-  //   }
-  // }); 
+      // Create a session if a user is found in the database
+      bcrypt.compare(password, hash, function(err, bool) {
+        if(err){
+          return err;
+          response.json({error: 'Database query Issues'})
+        } else if(bool) {
+          console.log("Im logged in");
+          req.session.loggedIn = true;
+          req.session.fullName = user.fullName;
+          req.session.email = user.password;
+          res.redirect('/');
+        } else {
+          res.json({ error:'Incorrect Password' }) // Go back to the home page
+        }
+      }); 
 
-    
+    }
+
+  });
+   
 };
 
 
@@ -51,8 +96,8 @@ var killSession = function(req, res){
 
 
 module.exports = {
-  compare: compareHashedPassword,
-  encrypt: encryptPassword,
+  loginUser: loginUser,
+  signUpUser: signUpUser,
   logout : killSession
 };
 
