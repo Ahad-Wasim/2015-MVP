@@ -24,7 +24,8 @@ var signUpUser = function(req, res, next){
         var userInfo = {
           fullName: fullName,
           email: email,
-          password: hash
+          password: hash,
+          favorites: []
         }
 
         var user = new User(userInfo);
@@ -103,10 +104,41 @@ var logout = function(req, res){
 
 };
 
+var updateWall = function(req, res){
+  console.log("Im here")
+  var image = req.body.favImage;
+  var user = req.body.user;
+  var text = req.body.text;
+  var email = req.body.email;
+
+  User.findOne({email:email},function(err, user){
+
+    var id = user._id;
+    user.favorites = user.favorites || [];
+    
+    user.favorites.push({
+      text: text,
+      image: image
+    });
+
+    User.update( { _id : id }, { $set: { favorites: user.favorites } }, function(err, user){
+      if(err){
+        console.log('error');
+        return error
+      } else {
+        console.log('winner', user);
+        res.json(user);  
+      }
+    })
+
+  })
+};
+
 
 module.exports = {
   loginUser: loginUser,
   signUpUser: signUpUser,
-  logout : logout
+  logout : logout,
+  updateWall: updateWall
 };
 

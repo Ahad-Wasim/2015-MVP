@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 
-var port = process.env.PORT || 3450 ;
+var port = process.env.PORT || 3500 ;
 
 
 app.listen(port, function(){
@@ -56,6 +56,7 @@ app.post('/login', helper.loginUser);
 app.get('/logout', helper.logout);
 
 
-
 // MOVE ALL THESE TO A ROUTER FILE WHEN YOU GET THE CHANCE 
 app.post('/api/getImages', flickr );
+
+app.post('/user', helper.updateWall )

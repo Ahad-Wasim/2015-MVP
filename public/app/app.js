@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['home.inputs','signUp','login','logout','ngRoute']);
+var app = angular.module('myApp', ['home.inputs','signUp','login','logout','user', 'ngRoute']);
 
 app.config(function($routeProvider){
   
@@ -19,7 +19,7 @@ app.config(function($routeProvider){
       templateUrl:'../views/userWall.html',
       controller: 'userProfileController'
     })
+})
 
-});
 
 

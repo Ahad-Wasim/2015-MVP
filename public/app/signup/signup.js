@@ -4,7 +4,7 @@ angular.module('signUp', [])
   
   $scope.email = '';
   $scope.password = '';
-  $scope.fullName = ''
+  $scope.fullName = '';
 
   $scope.checkSignUp = function(){
     
@@ -19,10 +19,9 @@ angular.module('signUp', [])
     }).then(function(response){
       if(response.data.error){ 
         console.log(response.data.error); 
-        // Can't use that username
       } else {
-        console.log(response.data);
-        $window.location.href= '/';
+        window.userData = response.data;
+        $location.path('/');
       }
 
     })

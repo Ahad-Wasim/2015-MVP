@@ -18,9 +18,36 @@
 
   <div class='image-wrapper'>
     <div class='showImages' ng-repeat= "image in searchResults" >
-      <img class='image-url' src= "{{ image.src }}" />
+      <img data-target="#myModal" data-toggle="modal" ng-click="addImage($event)"class='image-url' src= "{{ image.src }}" />
       <span>{{ image.title }}</span>
     </div>
   </div>
+
+
+  <!-- Modal -->
+   <div class="modal fade" id="myModal" role="dialog">
+     <div class="modal-dialog">
+     
+       <!-- Modal content-->
+       <div class="modal-content">
+         <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+           <h4 class="modal-title">Add To Your Wall</h4>
+         </div>
+
+         <div class="modal-comment form-group">
+           <label for="comment">Comment:</label>
+           <textarea ng-model="imgDesc" class="form-control" rows="5" id="comment"></textarea>
+         </div>
+
+         <div class="modal-footer">
+           <button ng-click="addToWall($event)" type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+         </div>
+       </div>
+       
+     </div>
+   </div>
+
+
 
 </div>

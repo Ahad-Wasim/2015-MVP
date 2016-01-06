@@ -10,14 +10,19 @@ angular.module('home.inputs',[])
     })
     
   }
-
    return { fetch: fetch };
  })
 .controller('inputController', ['$scope', '$http', 'FetchImage','$location', function($scope, $http, FetchImage, $location){
 
-  $scope.name = ""
+  $scope.name = window.userData.fullName.toUpperCase() || '';
+  $scope.email = window.userData.email || '';
 
-  $scope.currentImage ='';
+  $scope.imgDesc = '';
+
+  $scope.addImage = function(event){
+    $scope.interestedImage = event.currentTarget.currentSrc;
+  };
+
 
   // This is for the input tags
   $scope.messageText = '';
@@ -31,10 +36,41 @@ angular.module('home.inputs',[])
     FetchImage.fetch($scope.messageText)
       .then(function(response){
         $('.spinner').hide();
-        console.log(response.data);
         // $location.path('/imageResults');
         $scope.searchResults = response.data;
       });
+  }
+
+
+
+
+  $scope.addToWall = function(event){
+
+    var favImage = $scope.interestedImage
+    var email = $scope.email;
+    var user = $scope.name;
+    var text = $scope.imgDesc; 
+
+
+    var userWallData = {
+      favImage: favImage,
+      user: user,
+      email: email,
+      text: text
+    };
+
+    $http({
+      method:'POST',
+      url:'/user',
+      data: userWallData
+    })
+    .then(function(response){
+      console.log('Finished',response);
+      window.imageWall = response
+    });
+  
+    
+
   }
 
 
