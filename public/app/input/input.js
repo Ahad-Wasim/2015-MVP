@@ -66,7 +66,7 @@ angular.module('home.inputs',[])
     })
     .then(function(response){
       console.log('Finished',response);
-      window.imageWall = response
+      window.imageWall = response.data
     });
   
     

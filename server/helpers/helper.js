@@ -121,12 +121,11 @@ var updateWall = function(req, res){
       image: image
     });
 
-    User.update( { _id : id }, { $set: { favorites: user.favorites } }, function(err, user){
+    User.update( { _id : id }, { $set: { favorites: user.favorites } }, function(err, s){
       if(err){
         console.log('error');
         return error
       } else {
-        console.log('winner', user);
         res.json(user);  
       }
     })
